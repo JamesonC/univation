@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const initialData = [
-  { id: 1, quote: 'Hello there - me' },
-  { id: 2, quote: 'Lore ipsum loris frigates monosus - me' },
-  { id: 3, quote: 'Hello there - me' },
-  { id: 4, quote: 'Lore ipsum loris frigates monosus - me' },
-  { id: 5, quote: 'Lore ipsum loris frigates monosus - me' },
-  { id: 6, quote: 'Hello there - me' },
-  { id: 7, quote: 'Lore ipsum loris frigates monosus - me' }
+  { id: 1, quote: 'Hello there' },
+  { id: 2, quote: 'Lore ipsum loris frigates monosus' },
+  { id: 3, quote: 'Hello there' },
+  { id: 4, quote: 'Lore ipsum loris frigates monosus' },
+  { id: 5, quote: 'Lore ipsum loris frigates monosus' },
+  { id: 6, quote: 'Hello there' },
+  { id: 7, quote: 'Lore ipsum loris frigates monosus' }
 ]
 
 const App = () => {
@@ -54,7 +54,7 @@ const App = () => {
       <div className={classes.root}>
         {data.map(item =>
           <Paper elevation={3} key={item.id}>
-            <h5>{item.quote}</h5>
+            <h5>"{item.quote}" - me</h5>
           </Paper>
         )}
       </div>
