@@ -36,6 +36,7 @@ const App = () => {
 
   const submitQuote = value => {
     setData([...data, {id: data.length + 1, quote: value}])
+    setValue('')
   }
 
   return (
