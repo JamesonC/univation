@@ -15,12 +15,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const data = [
+  { id: 1, quote: 'Hello there - me' },
+  { id: 2, quote: 'Lore ipsum loris frigates monosus - me' },
+  { id: 3, quote: 'Hello there - me' },
+  { id: 4, quote: 'Lore ipsum loris frigates monosus - me' },
+  { id: 5, quote: 'Lore ipsum loris frigates monosus - me' },
+  { id: 6, quote: 'Hello there - me' },
+  { id: 7, quote: 'Lore ipsum loris frigates monosus - me' }
+]
+
 const App = () => {
   const classes = useStyles();
+
   return (
     <div className="App">
       <div className={classes.root}>
-        <Paper elevation={3} />
+        {data.map(item =>
+          <Paper elevation={3} key={item.id}>
+            <h5>{item.quote}</h5>
+          </Paper>
+        )}
       </div>
     </div>
   );
