@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const data = [
+const initialData = [
   { id: 1, quote: 'Hello there - me' },
   { id: 2, quote: 'Lore ipsum loris frigates monosus - me' },
   { id: 3, quote: 'Hello there - me' },
@@ -27,13 +27,16 @@ const data = [
 
 const App = () => {
   const classes = useStyles();
+  const [data, setData] = useState(initialData)
   const [value, setValue] = useState('');
 
   const handleChange = event => {
     setValue(event.target.value);
   };
 
-  console.log(value)
+  const submitQuote = value => {
+    setData([...data, {id: data.length + 1, quote: value}])
+  }
 
   return (
     <div className="App">
@@ -45,7 +48,7 @@ const App = () => {
           value={value}
           onChange={handleChange}
         />
-        <Button variant="contained" color="primary" onClick={() => alert('it works')}>Add Quote</Button>
+        <Button variant="contained" color="primary" onClick={() => submitQuote(value)}>Add Quote</Button>
       </div>
       <div className={classes.root}>
         {data.map(item =>
