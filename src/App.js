@@ -6,6 +6,7 @@ import './App.css';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    justifyContent: 'center',
     flexWrap: 'wrap',
     '& > *': {
       margin: theme.spacing(1),
@@ -35,10 +36,11 @@ const App = () => {
   };
 
   const submitQuote = value => {
-    setData([...data, {id: data.length + 1, quote: value}])
+    setData([...data, { id: data.length + 1, quote: value }])
     setValue('')
   }
 
+  // className="App"
   return (
     <div className="App">
       <div>
@@ -49,7 +51,9 @@ const App = () => {
           value={value}
           onChange={handleChange}
         />
-        <Button variant="contained" color="primary" onClick={() => submitQuote(value)}>Add Quote</Button>
+        <div style={{ marginTop: 5 }}>
+          <Button size='large' variant="contained" color="primary" onClick={() => submitQuote(value)}>Add Quote</Button>
+        </div>
       </div>
       <div className={classes.root}>
         {data.map(item =>
