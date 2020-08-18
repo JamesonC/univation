@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Paper, TextField, Button } from '@material-ui/core/';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import './App.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +38,11 @@ const App = () => {
 
   const submitQuote = value => {
     setData([...data, { id: data.length + 1, quote: value }])
-    setValue('') 
+    setValue('')
+  }
+
+  const deleteQuote = id => {
+    setData(data.filter(item => item.id !== id))
   }
 
   return (
@@ -57,6 +62,7 @@ const App = () => {
       <div className={classes.root}>
         {data.map(item =>
           <Paper elevation={3} key={item.id}>
+            <DeleteForeverIcon onClick={() => deleteQuote(item.id)}/>
             <h5>"{item.quote}" - me</h5>
           </Paper>
         )}
