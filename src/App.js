@@ -37,6 +37,11 @@ const App = () => {
   };
 
   const submitQuote = value => {
+
+    if (!value.name) {
+      alert('Please Enter a Quote')
+      return
+    }
     setData([...data, { id: data.length + 1, quote: value }])
     setValue('')
   }
