@@ -37,10 +37,9 @@ const App = () => {
 
   const submitQuote = value => {
     setData([...data, { id: data.length + 1, quote: value }])
-    setValue('')
+    setValue('') 
   }
 
-  // className="App"
   return (
     <div className="App">
       <div>
