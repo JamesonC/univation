@@ -1,6 +1,6 @@
 # Univation
 
-This is a simple React app to view and add quotes to the client.
+This is a simple React app to view, add, and delete quotes to the client.
 
 ## Getting Started
 
