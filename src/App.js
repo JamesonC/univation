@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { Paper, TextField } from '@material-ui/core/';
 import './App.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,9 +27,23 @@ const data = [
 
 const App = () => {
   const classes = useStyles();
+  const [value, setValue] = useState('Insert Quote Here...');
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
 
   return (
     <div className="App">
+      <div>
+        <TextField
+          id="standard-multiline-flexible"
+          label="Quote"
+          rowsMax={4}
+          value={value}
+          onChange={handleChange}
+        />
+      </div>
       <div className={classes.root}>
         {data.map(item =>
           <Paper elevation={3} key={item.id}>
